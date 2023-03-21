@@ -4,8 +4,8 @@ import { StyledButton, StyledButtonContainer } from './FeedbackOptions.styled'
 export const FeedbackOptions = ({ options, onFeedback }) => {
   return (
     <StyledButtonContainer>
-      {options.map((key, index) => (
-          <StyledButton key={index} type="button" onClick={() => onFeedback(key)}>{key}
+      {options.map((option, index) => (
+          <StyledButton key={index} type="button" onClick={() => onFeedback(option)}>{option}
         </StyledButton>
       ))}
     </StyledButtonContainer>
@@ -13,5 +13,6 @@ export const FeedbackOptions = ({ options, onFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-    options: PropTypes.node
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onFeedback: PropTypes.func.isRequired,
 }
